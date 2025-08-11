@@ -1,0 +1,11 @@
+{
+    "register-b2b": {
+        "component": "RegisterB2bApp"
+    },
+    "pdp-product-share": {
+        "component": "PdpProductShareApp"
+    },
+    "pdp-product-similars": {
+        "component": "PdpProductSimilarsApp"
+    }
+}

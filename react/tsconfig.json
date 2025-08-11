@@ -1,0 +1,25 @@
+{
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "noEmitOnError": false,
+    "lib": ["dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
+    "noImplicitAny": false,
+    "jsx": "react-jsx"  
+  },
+  "include": [
+    "./components/**/*",
+    "./assets/**/*",
+    "./typings/*.d.ts",
+    "./**/*.tsx",
+    "./**/*.ts",
+    "assets/imgs/*.png",
+    "react",
+    "typings",
+    "src"
+  ]
+}

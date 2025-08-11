@@ -1,0 +1,32 @@
+.similarsTitle {
+    color: #000000;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.similarsWrapper {
+    display: flex;
+}
+
+.simlarsItemLink {
+    display: block;
+    margin: 0 10px 0 0;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.simlarsItemLink:hover {
+    opacity: 0.8;
+}
+
+.simlarsItem {
+    display: block;
+}
+
+.simlarsItemImg {
+    width: auto;
+    height: 40px;
+    border-radius: 8px;
+}
