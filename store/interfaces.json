@@ -1,4 +1,7 @@
 {
+    "global-css": {
+        "component": "GlobalCustomCSSApp"
+    },
     "register-b2b": {
         "component": "RegisterB2bApp"
     },

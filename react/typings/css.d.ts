@@ -7,3 +7,4 @@ declare module '*.css' {
 
   export default styles
 }
+declare module 'vtex.css-handles'
