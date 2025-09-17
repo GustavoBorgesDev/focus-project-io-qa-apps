@@ -10,5 +10,8 @@
     },
     "pdp-product-similars": {
         "component": "PdpProductSimilarsApp"
+    },
+    "pdp-product-resume-spec-app": {
+        "component": "PdpResumeSpecificationsApp"
     }
 }
