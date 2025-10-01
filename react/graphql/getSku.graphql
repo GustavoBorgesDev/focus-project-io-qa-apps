@@ -1,20 +1,20 @@
-query getSku ($value: ID!) {
-    sku(identifier: {field: id, value: $value}) {
-        id
-        name
-        isActive
-        height
-        width
-        weightKg
-        unitMultiplier
-        commercialConditionId
-        estimatedDateArrival
-        rewardValue
-        packagedHeight
-        packagedWidth
-        packagedWeightKg
-        cubicWeight
-    }
+query getSku($value: ID!) @context(provider: "vtex.store-graphql") {
+  sku(identifier: { field: id, value: $value }) {
+    id
+    name
+    isActive
+    height
+    width
+    weightKg
+    unitMultiplier
+    commercialConditionId
+    estimatedDateArrival
+    rewardValue
+    packagedHeight
+    packagedWidth
+    packagedWeightKg
+    cubicWeight
+  }
 }
 
 # query {

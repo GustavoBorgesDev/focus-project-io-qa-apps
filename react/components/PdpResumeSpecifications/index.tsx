@@ -14,18 +14,23 @@ const CSS = [
 ]
 
 const PdpResumeSpecifications = () => {
-    console.log("\n\nPdpResumeSpecifications\n\n");
+
+    // CSS
     const handles = useCssHandles(CSS);
     const cls = handles.handles;
 
+    // APOLLO CLIENT
     const client = useApolloClient();
 
+    // PRODUCT DATA
     const prodData: any = useContext(ProductContext);
     const skuId = prodData?.selectedItem.itemId;
 
+    // STATE - DATA
     const [gramatura, setGramatura]: any = useState(null);
     const [largura, setLargura]: any = useState(null);
     const [composicao, setComposicao]: any = useState(null);
+    const [code]: any = useState(prodData.product.productReference);
 
     const getSkuModal = async () => {
         try {
@@ -34,6 +39,7 @@ const PdpResumeSpecifications = () => {
             });
             console.log("Data SKU: ", data);
             setLargura(data.sku.packagedWidth);
+            setGramatura(data.sku.weightKg);
         } catch (e) {
             console.log("Error: ", e.message);
         }
@@ -47,18 +53,23 @@ const PdpResumeSpecifications = () => {
     }
 
     const getFields = () => {
-        let findGramatura = prodData?.product?.properties.find(item => {
-            return item.name == "Gramatura"
-        });
-        if (findGramatura) {
-            setGramatura(findGramatura.values[0]);
-        }
+        // let findGramatura = prodData?.product?.properties.find(item => {
+        //     return item.name == "Gramatura"
+        // });
+        // if (findGramatura) {
+        //     setGramatura(findGramatura.values[0]);
+        // }
         let findComposicao = prodData?.product?.properties.find(item => {
-            return item.name == "Composição"
+            return item.name == "Percentuais de Composição"
         });
         if (findComposicao) {
-            setComposicao(findComposicao.values[0]);
+            let compText = findComposicao.values[0];
+            compText = compText.substring(compText.indexOf(':') + 2);
+            setComposicao(compText);
         }
+
+        console.log("LINHA 69: ", prodData?.product?.productReference);
+        //setCode(prodData?.product?.productReference);
     }
 
     useEffect(() => {
@@ -82,8 +93,13 @@ const PdpResumeSpecifications = () => {
             )}
             {composicao && (
                 <div className={cls.pdpResumeItem}>
-                    <span className={cls.pdpResumeText}>Composição:</span>
+                    <span className={cls.pdpResumeText}>Composição (Principal):</span>
                     <span className={cls.pdpResumeValue}>{composicao}</span>
+                </div>
+            )}
+            {code && (
+                <div className={cls.pdpResumeItem}>
+                    <span className={cls.pdpResumeText}>{code}</span>
                 </div>
             )}
         </div>
