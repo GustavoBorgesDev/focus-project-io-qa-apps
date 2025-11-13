@@ -173,7 +173,7 @@ const RegisterB2b = () => {
             }
 
             let respCNPJ = await getCNPJdata();
-            console.log("RESP CNPJ: ", respCNPJ.data);
+            console.log("RESP CNPJ A: ", respCNPJ.data);
             populateCNPJdata(respCNPJ.data);
 
             setIsLoading(false)
@@ -184,13 +184,14 @@ const RegisterB2b = () => {
     }
 
     const populateCNPJdata = (data) => {
-        console.log("Data 152: ", data);
+        console.log("Data 152 B: ", data);
 
         setFormData(prev => ({
             ...prev,
             cnpj: data.customer.document,
             razaoSocial: data.customer.corporateName,
             nomeFantasia: data.customer.tradeName,
+            inscricaoEstadual: data.customer.stateRegistration,
             dataFundacao: formatDateToIso(data.customer.creationDate)
         }))
 
